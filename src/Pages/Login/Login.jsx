@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "./Login.css";
 import logo from "../../assets/logo.png";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
 
   const [signState, setSignState] = useState('Sign In'); 
-
+  const navigate = useNavigate();
 
 
   return (
@@ -19,7 +20,10 @@ const Login = () => {
           )}
           <input type="email" placeholder="Your email" />
           <input type="password" placeholder="Password" />
-          <button>{signState}</button>
+          <button onClick={(e) => {
+            e.preventDefault();
+            navigate("/");
+          } }>{signState}</button>
           <div className="form-help">
             <div className="remember">
               <input type="checkbox" />

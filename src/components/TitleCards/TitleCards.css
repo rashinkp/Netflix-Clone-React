@@ -1,7 +1,6 @@
 .title-cards {
   margin-top: 50px;
   margin-bottom: 30px;
-
 }
 
 .title-cards h2 {
@@ -14,7 +13,7 @@
   overflow-x: scroll;
 }
 
-.card-list::-webkit-scrollbar{
+.card-list::-webkit-scrollbar {
   display: none;
 }
 
@@ -31,4 +30,6 @@
   position: absolute;
   bottom: 10px;
   right: 10px;
+  text-decoration: none;
+  color: white;
 }
