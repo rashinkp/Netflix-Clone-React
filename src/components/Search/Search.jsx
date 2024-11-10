@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Search.css";
+import { Link } from "react-router-dom";
+import Player from "../../Pages/Player/Player";
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -98,14 +100,14 @@ const Search = () => {
           <h2>Search Results</h2>
           <div className="movie-cards">
             {filteredMovies.map((movie) => (
-              <div key={movie.id} className="movie-card">
+              <Link key={movie.id} className="movie-card" to={`/player/${movie.id}`} >
                 <img
                   src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
                   alt={movie.original_title}
                   className="movie-poster"
                 />
                 <h3>{movie.original_title}</h3>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
