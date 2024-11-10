@@ -4,7 +4,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  position: relative;
+  padding: 10px;
 }
 
 .player img {
@@ -17,12 +18,58 @@
 
 .player iframe {
   border-radius: 10px;
-
+  width: 90%;
+  max-width: 900px;
+  height: 60vh;
+  max-height: 500px;
 }
 
 .player-info {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 90%;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.player-info p {
+  margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+  .player iframe {
+    height: 50vh;
+  }
+
+  .player-info {
+    width: 100%;
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .player img {
+    width: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .player iframe {
+    height: 40vh;
+  }
+
+  .player-info {
+    padding: 8px;
+    font-size: 11px;
+  }
+
+  .player img {
+    width: 35px;
+  }
 }

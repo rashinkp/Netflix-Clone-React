@@ -12,6 +12,7 @@
     transparent
   );
   z-index: 1;
+  transition: all 0.3s ease; /* Smooth transition for responsiveness */
 }
 
 .navbar-left {
@@ -19,14 +20,17 @@
   align-items: center;
   gap: 50px;
 }
+
 .navbar-left img {
   width: 90px;
 }
+
 .navbar-left ul {
   display: flex;
   list-style: none;
   gap: 20px;
 }
+
 .navbar-left ul li {
   cursor: pointer;
 }
@@ -41,6 +45,7 @@
   width: 20px;
   cursor: pointer;
 }
+
 .navbar-right .profile {
   border-radius: 4px;
   width: 35px;
@@ -77,5 +82,117 @@
 }
 
 .nav-dark {
-  background:#141414;
+  background: #141414;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 998;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .navbar-left {
+    gap: 30px; /* Reduce space between logo and menu items */
+  }
+
+  .navbar-left ul li {
+    font-size: 12px; /* Slightly smaller font size */
+  }
+
+  .navbar-right {
+    gap: 15px; /* Reduce space between icons */
+  }
+}
+
+@media (max-width: 768px) {
+  /* For tablets and below */
+  .navbar {
+    padding: 15px 3%;
+  }
+
+  .navbar-left {
+    gap: 20px;
+  }
+
+  .navbar-left ul {
+    display: none; /* Hide menu items on smaller screens */
+    flex-direction: column;
+    position: absolute;
+    background-color: #141414;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    gap: 15px;
+  }
+
+  .navbar-left ul li {
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .navbar-left ul li:hover {
+    background-color: #333;
+  }
+
+  .navbar-left img {
+    width: 70px; /* Smaller logo */
+  }
+
+  .navbar-right {
+    gap: 10px;
+  }
+
+  .navbar-right .profile {
+    width: 30px;
+  }
+
+  /* Hamburger menu (toggle on smaller screens) */
+  .navbar-right .icons {
+    display: block;
+    cursor: pointer;
+    width: 17px;
+  }
+
+  .navbar-profile {
+    display: none; /* Hide profile on mobile */
+  }
+
+  .navbar-left ul.open {
+    display: flex;
+  }
+
+  /* Toggle Search button in navbar for mobile */
+  .search-icon {
+    display: none; /* Hide search icon on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  /* For mobile phones */
+  .navbar {
+    padding: 15px 2%;
+  }
+
+  .navbar-left {
+    gap: 15px; 
+  }
+
+  .navbar-left ul {
+    gap: 10px;
+  }
+
+  .navbar-right {
+    gap: 5px;
+  }
+
+  .navbar-left img {
+    width: 50px; 
+  }
 }

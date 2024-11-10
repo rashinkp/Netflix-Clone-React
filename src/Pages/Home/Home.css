@@ -1,17 +1,19 @@
+/* Base styles for desktop */
 .hero {
   position: relative;
 }
+
 .banner-img {
   width: 100%;
   mask-image: linear-gradient(to right, transparent, black 75%);
-  -weblit-mask-image: linear-gradient(to right, transparent, black 75%);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 75%);
 }
 
 .hero-caption {
   position: absolute;
   width: 100%;
-  padding-left : 6%;
-  bottom: 0px;
+  padding-left: 6%;
+  bottom: 0;
 }
 
 .caption-img {
@@ -31,9 +33,11 @@
   gap: 10px;
   margin-bottom: 50px;
 }
+
 .hero-btns .btn img {
   width: 25px;
 }
+
 .hero-btns .btn {
   border: 0;
   outline: 0;
@@ -56,10 +60,84 @@
 .hero-btns .btn:hover {
   background: #ffffffbf;
 }
+
 .hero-btns .btn.dark-btn:hover {
   background: #6d6d6e66;
 }
 
 .more-cards {
   padding-left: 6%;
+}
+
+/* Style to darken and blur the background when search is active */
+.blurred-background {
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+body {
+  transition: all 0.3s ease;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .hero-caption {
+    padding-left: 4%;
+  }
+
+  .caption-img {
+    max-width: 300px;
+  }
+
+  .hero-caption p {
+    font-size: 15px;
+    max-width: 90%;
+  }
+
+  .hero-btns {
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  .hero-btns .btn {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+  
+  .more-cards {
+    padding-left: 4%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-caption {
+    padding-left: 3%;
+  }
+
+  .caption-img {
+    max-width: 250px;
+    margin-bottom: 20px;
+  }
+
+  .hero-caption p {
+    font-size: 14px;
+  }
+
+  .hero-btns .btn img {
+    width: 20px;
+  }
+
+  .hero-btns .btn {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
 }
