@@ -2,10 +2,13 @@ import React, { useEffect, useRef, useState } from "react";
 import "./TitleCards.css";
 // import cards_data from "../../assets/cards/Cards_data";
 import { Link } from "react-router-dom";
-
+import { useAuth } from "../../AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const TitleCards = ({title,category}) => {
 
+  const navigate = useNavigate();
+  const { loginSatatus } = useAuth();
   const [apiData, setApiData] = useState([])
   const cardsRef = useRef();
 
@@ -42,6 +45,14 @@ const TitleCards = ({title,category}) => {
     cardsRef.current.addEventListener("wheel", handleWheel);
   }, []);
 
+  const handleOnclick = (userId) => {
+    if (loginSatatus !== '') {
+      navigate(`/player/${userId}`);
+    } else {
+      navigate('/login')
+    }
+  }
+
 
   return (
     <div className="title-cards">
@@ -49,10 +60,10 @@ const TitleCards = ({title,category}) => {
       <div className="card-list" ref={cardsRef}>
         {apiData.map((card) => {
           return (
-            <Link to={`/player/${card.id}`} className="card" key={card.id}>
+            <div onClick={() => handleOnclick(card.id)} className="card" key={card.id}>
               <img src={`https://image.tmdb.org/t/p/w500`+card.backdrop_path} alt="" />
               <p>{card.original_title}</p>
-            </Link>
+            </div>
           );
         })}
       </div>
