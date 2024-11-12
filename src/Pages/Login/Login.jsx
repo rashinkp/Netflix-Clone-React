@@ -3,10 +3,11 @@ import "./Login.css";
 import logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-
+import axios from "axios";
 const Login = () => {
   const [signState, setSignState] = useState("Sign In");
   const navigate = useNavigate();
+  const [responseStatus, setResponseStatus] = useState("");
   const {
     register,
     handleSubmit,
@@ -27,9 +28,29 @@ const Login = () => {
     }
   }
 
-  function onSubmit(data) {
-    console.log(data);
-  }
+  const onSubmit = async (data) => {
+    try {
+      const url =
+        signState === "Sign In"
+          ? "http://localhost:3000/signin"
+          : "http://localhost:3000/signup";
+      const formRes =
+        signState === "Sign Up"
+          ? { name: data.name, email: data.email, password: data.password }
+          : { email: data.email, password: data.password };
+
+      const response = await axios.post(url, formRes);
+
+      if (response.status === 200 || response.status === 201) {
+        navigate("/");
+      } else {
+        setResponseStatus(response.data.message);
+      }
+    } catch (err) {
+      setResponseStatus(err?.response?.data?.message);
+      console.log("error found while connecting with backend", err.message);
+    }
+  };
 
   return (
     <div className="login">
@@ -82,6 +103,11 @@ const Login = () => {
             <p className="error-message">{errors.password.message}</p>
           )}
           <button type="submit">{signState}</button>
+          {responseStatus && (
+            <p className="error-message" style={{ marginTop: "10px" }}>
+              {responseStatus}
+            </p>
+          )}
           <div className="form-help">
             <div className="remember">
               <input type="checkbox" />

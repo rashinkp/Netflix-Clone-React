@@ -100,7 +100,6 @@
   font-size: small;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .login {
     padding: 20px 4%;
