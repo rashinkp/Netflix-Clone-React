@@ -44,7 +44,8 @@ const Login = () => {
       const response = await axios.post(url, formRes);
 
       if (response.status === 200 || response.status === 201) {
-        setLoginStatus(true);
+        const userName = response.data?.res?.name;
+        setLoginStatus(userName);
         navigate("/");
       } else {
         setResponseStatus(response.data.message);

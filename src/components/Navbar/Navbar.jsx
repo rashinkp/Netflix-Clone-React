@@ -9,28 +9,28 @@ import { Link } from "react-router-dom";
 import Search from "../Search/Search.jsx";
 import { useAuth } from "../../AuthContext.jsx";
 const Navbar = () => {
-  const { loginSatatus ,setLoginStatus } = useAuth();
-  const [showSearch , setShowSearch] = useState(false)
+  const { loginSatatus, setLoginStatus } = useAuth();
+  const [showSearch, setShowSearch] = useState(false);
   const navRef = useRef();
   useEffect(() => {
-    window.addEventListener('scroll', () => {
+    window.addEventListener("scroll", () => {
       if (window.scrollY >= 80) {
-        navRef.current.classList.add('nav-dark')
+        navRef.current.classList.add("nav-dark");
       } else {
         navRef.current.classList.remove("nav-dark");
       }
 
       if (showSearch) {
-        document.body.classList.add('blurred-background');
+        document.body.classList.add("blurred-background");
       } else {
         document.body.classList.remove("blurred-background");
       }
 
       return () => {
-        document.body.classList.remove('blurred-background');
-      }
-    })
-  }, [])
+        document.body.classList.remove("blurred-background");
+      };
+    });
+  }, []);
   return (
     <div ref={navRef} className="navbar">
       <div className="navbar-left">
@@ -55,12 +55,18 @@ const Navbar = () => {
         {showSearch && <Search />}
         <p>Children</p>
         <img src={bell_icon} alt="" className="icons" />
+
         <div className="navbar-profile">
           <img src={profile_icon} alt="" className="profile" />
+          <p className="user-text">{loginSatatus}</p>
           <img src={caret_icon} alt="" />
+
           <div className="dropdown">
-            {loginSatatus ? (
-              <span onClick={() => setLoginStatus(false)}>Sign Out of Netflix</span>
+            {loginSatatus !== "" ? (
+              <span onClick={() => setLoginStatus("")}>
+                {" "}
+                Sign Out of Netflix
+              </span>
             ) : (
               <Link to="/login" style={{ color: "white" }}>
                 Sign In to Netflix

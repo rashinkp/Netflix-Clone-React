@@ -95,6 +95,10 @@
   z-index: 998;
 }
 
+.user-text {
+  margin-left: 5px;
+}
+
 /* Responsive Styles */
 @media (max-width: 1200px) {
   .navbar-left {
@@ -181,7 +185,7 @@
   }
 
   .navbar-left {
-    gap: 15px; 
+    gap: 15px;
   }
 
   .navbar-left ul {
@@ -193,6 +197,6 @@
   }
 
   .navbar-left img {
-    width: 50px; 
+    width: 50px;
   }
 }
