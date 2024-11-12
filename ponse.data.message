@@ -1,0 +1,35 @@
+[33mcommit ce1cdb409c85c8d0f79f566270aa51106b044fd9[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: Admin <rashinkp001@gmail.com>
+Date:   Tue Nov 12 12:33:40 2024 +0530
+
+    connected with backend successfully and compeleted the login and signup validation
+
+[33mcommit b3eb47446caae88476f457f62ba040391d7360d3[m
+Author: Admin <rashinkp001@gmail.com>
+Date:   Tue Nov 12 10:30:27 2024 +0530
+
+    validation completed
+
+[33mcommit 949ad965ec29401468fb090dac8f87f6c99e2c5d[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Admin <rashinkp001@gmail.com>
+Date:   Sun Nov 10 18:56:27 2024 +0530
+
+    search filtered cards functionality added
+
+[33mcommit 857ed2616858cc41eb5847a5794da09e56bdb860[m
+Author: Admin <rashinkp001@gmail.com>
+Date:   Sun Nov 10 18:39:27 2024 +0530
+
+    just completed search bar functionality no errors
+
+[33mcommit 24137f4c812c973cbe3ea0e0ced794ffcef3680e[m
+Author: Admin <rashinkp001@gmail.com>
+Date:   Sun Nov 10 14:17:58 2024 +0530
+
+    just completed netflix basic clone not responsive and not implemented search
+
+[33mcommit 308117a2617b8cc530aea53fe92424005c269b0f[m
+Author: Admin <rashinkp001@gmail.com>
+Date:   Sun Nov 10 12:32:36 2024 +0530
+
+    netflix clone first commit just data fetched from api

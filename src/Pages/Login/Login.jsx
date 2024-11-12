@@ -4,7 +4,9 @@ import logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { useAuth } from "../../AuthContext";
 const Login = () => {
+  const { setLoginStatus } = useAuth();
   const [signState, setSignState] = useState("Sign In");
   const navigate = useNavigate();
   const [responseStatus, setResponseStatus] = useState("");
@@ -42,6 +44,7 @@ const Login = () => {
       const response = await axios.post(url, formRes);
 
       if (response.status === 200 || response.status === 201) {
+        setLoginStatus(true);
         navigate("/");
       } else {
         setResponseStatus(response.data.message);

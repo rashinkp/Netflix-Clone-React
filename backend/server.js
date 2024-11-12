@@ -14,12 +14,13 @@ app.post("/signup", async (req, res) => {
   const { name, email, password } = req.body;
   const userExist = await User.findOne({ email });
   if (userExist) {
-    res.status(409).json({message:'User already exists please signin'});
+    return res.status(409).json({message:'User already exists please signin'});
   } else {
+    const newUser = new User({ name, email, password });
+    await newUser.save();
+    return res.status(201).json({ message: "signup was successful", res: newUser });
   }
-  const newUser = new User({ name, email, password });
-  await newUser.save();
-  res.status(201).json({ message: "signup was successful", res: newUser });
+  
 });
 
 app.post("/signin", async (req, res) => {

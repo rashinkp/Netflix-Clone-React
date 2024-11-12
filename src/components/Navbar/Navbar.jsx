@@ -7,8 +7,9 @@ import profile_icon from "../../assets/profile_img.png";
 import caret_icon from "../../assets/caret_icon.svg";
 import { Link } from "react-router-dom";
 import Search from "../Search/Search.jsx";
-
+import { useAuth } from "../../AuthContext.jsx";
 const Navbar = () => {
+  const { loginSatatus ,setLoginStatus } = useAuth();
   const [showSearch , setShowSearch] = useState(false)
   const navRef = useRef();
   useEffect(() => {
@@ -58,9 +59,13 @@ const Navbar = () => {
           <img src={profile_icon} alt="" className="profile" />
           <img src={caret_icon} alt="" />
           <div className="dropdown">
-            <Link to="/login" style={{ color: "white" }}>
-              Sign Out of Netflix
-            </Link>
+            {loginSatatus ? (
+              <span onClick={() => setLoginStatus(false)}>Sign Out of Netflix</span>
+            ) : (
+              <Link to="/login" style={{ color: "white" }}>
+                Sign In to Netflix
+              </Link>
+            )}
           </div>
         </div>
       </div>
